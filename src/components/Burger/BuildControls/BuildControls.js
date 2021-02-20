@@ -18,7 +18,8 @@ const buildControls = (props) => {
             key={control.label}
             label={control.label}
             added={() => props.ingredientsAdded(control.type)}
-            removed={() => props.ingredientRemoved(control.type)} />
+            removed={() => props.ingredientRemoved(control.type)}
+            isPurchasable={props.purchasable} />
         )}
       </div>
       <button disabled={!props.purchasable} onClick={props.purchaseHandler} className="OrderButton">Order Now</button>

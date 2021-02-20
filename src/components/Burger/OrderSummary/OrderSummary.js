@@ -13,7 +13,7 @@ const orderSummary = (props) => {
       <ul>
         {ingredientSummary}
       </ul>
-      <h4>Order Total: ${props.orderTotal.toFixed(2)}</h4>
+      <h4>Order Total: ${parseFloat(props.orderTotal).toFixed(2)}</h4>
       <p>Continue to Checkout?</p>
       <Button btnType="Danger" clicked={props.purchaseCanceled}>Cancel</Button>
       <Button btnType="Success" clicked={props.purchaseContinued}>Continue</Button>

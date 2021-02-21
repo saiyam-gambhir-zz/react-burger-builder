@@ -8,6 +8,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import burgerBuilderReducer from './store/reducers/burderBuilder';
+import orderReducers from './store/reducers/order';
 
 const logger = store => {
   return next => {
@@ -21,7 +22,13 @@ const logger = store => {
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(burgerBuilderReducer, composeEnhancers(
+
+const rootReducer = combineReducers({
+  burderBuilder: burgerBuilderReducer,
+  order: orderReducers
+});
+
+const store = createStore(rootReducer, composeEnhancers(
   applyMiddleware(thunk, logger)
 ));
 
